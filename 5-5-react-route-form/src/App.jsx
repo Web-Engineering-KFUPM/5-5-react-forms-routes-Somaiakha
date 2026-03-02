@@ -143,7 +143,35 @@
 // - Don’t change any CSS — the form and error styles are already provided.
 // - Use the hints above to guide your implementation, but write the actual JSX and logic yourself.
 // ================================================================
+import { Routes, Route, NavLink } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Registration from "./pages/Registration";
 
+function App() {
+  return (
+    <div>
+      <nav>
+        <div className="links">
+          <NavLink to="/" end className="navlink">Home</NavLink>
+          <NavLink to="/about" className="navlink">About</NavLink>
+          <NavLink to="/registration" className="navlink">Registration</NavLink>
+        </div>
+      </nav>
+
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/registration" element={<Registration />} />
+          <Route path="*" element={<h2>404 — Not Found</h2>} />
+        </Routes>
+      </main>
+    </div>
+  );
+}
+
+export default App;
 
 export default function App() {
   return (
